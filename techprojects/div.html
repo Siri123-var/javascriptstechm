@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Input Fields</title>
+</head>
+<body>
+
+    <h1>HTML Form Input Fields Example</h1>
+
+    <form action="#" method="POST">
+        <!-- Text Input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <!-- Password Input -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <!-- Number Input -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="1" max="120"><br><br>
+
+        <!-- Checkbox Input -->
+        <label for="subscribe">Subscribe to newsletter:</label>
+        <input type="checkbox" id="subscribe" name="subscribe"><br><br>
+
+        <!-- Radio Button -->
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female"><br><br>
+
+        <!-- File Input -->
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file"><br><br>
+
+        <!-- Date Input -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <!-- Time Input -->
+        <label for="meeting-time">Meeting Time:</label>
+        <input type="time" id="meeting-time" name="meeting-time"><br><br>
+
+        <!-- Datetime-local Input -->
+        <label for="event-datetime">Event Date and Time:</label>
+        <input type="datetime-local" id="event-datetime" name="event-datetime"><br><br>
+
+        <!-- Month Input -->
+        <label for="month">Month:</label>
+        <input type="month" id="month" name="month"><br><br>
+
+        <!-- Range Input -->
+        <label for="volume">Volume:</label>
+        <input type="range" id="volume" name="volume" min="0" max="100"><br><br>
+
+        <!-- Color Input -->
+        <label for="color">Choose a color:</label>
+        <input type="color" id="color" name="color"><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit"><br><br>
+
+        <!-- Reset Button -->
+        <input type="reset" value="Reset"><br><br>
+
+        <!-- Button -->
+        <input type="button" value="Click Me" onclick="alert('Button clicked!')"><br><br>
+
+        <!-- Hidden Input -->
+        <input type="hidden" name="user_id" value="12345"><br><br>
+
+        <!-- Textarea -->
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+
+        <!-- Select Box -->
+        <label for="cars">Choose a car:</label>
+        <select id="cars" name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+        </select><br><br>
+    </form>
+
+</body>
+</html>

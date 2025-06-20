@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <div id="quiz">
+      <h2 id="question">Question will go here</h2>
+      <ul id="choices">
+        <!-- Choices will be dynamically added here -->
+      </ul>
+      <button id="nextBtn">Next</button>
+    </div>
+    <div id="result" class="result">
+      <h2>Your Score: <span id="score">0</span></h2>
+      <button id="restartBtn">Restart</button>
+    </div>
+  </div>
+  <script>
+    const questions = [
+  {
+    question: "What is the capital of France?",
+    choices: ["Berlin", "Madrid", "Paris", "Rome"],
+    correctAnswer: "Paris"
+  },
+  {
+    question: "Which planet is known as the Red Planet?",
+    choices: ["Earth", "Mars", "Jupiter", "Saturn"],
+    correctAnswer: "Mars"
+  },
+  {
+    question: "Which programming language is this quiz written in?",
+    choices: ["Python", "Java", "JavaScript", "Ruby"],
+    correctAnswer: "JavaScript"
+  },
+  {
+    question: "Who invented the light bulb?",
+    choices: ["Nikola Tesla", "Albert Einstein", "Thomas Edison", "Isaac Newton"],
+    correctAnswer: "Thomas Edison"
+  }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questionElement = document.getElementById("question");
+const choicesElement = document.getElementById("choices");
+const nextButton = document.getElementById("nextBtn");
+const resultElement = document.getElementById("result");
+const scoreElement = document.getElementById("score");
+const restartButton = document.getElementById("restartBtn");
+
+function loadQuestion() {
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
+  choicesElement.innerHTML = currentQuestion.choices
+    .map(choice => `<li class="choice">${choice}</li>`)
+    .join('');
+  nextButton.disabled = true;
+}
+function handleAnswer(event) {
+  const selectedChoice = event.target.textContent;
+  const currentQuestion = questions[currentQuestionIndex];
+  if (selectedChoice === currentQuestion.correctAnswer) {
+    score++;
+  }
+  Array.from(choicesElement.children).forEach(choiceElement => {
+    choiceElement.style.pointerEvents = 'none';  
+  });
+nextButton.disabled = false;  
+}
+function showResult() {
+  resultElement.style.display = "block";
+  scoreElement.textContent = score;
+  document.getElementById("quiz").style.display = "none";
+}
+function nextQuestion() {
+  currentQuestionIndex++;
+  
+  if (currentQuestionIndex < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+function restartQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  document.getElementById("quiz").style.display = "block";
+  resultElement.style.display = "none";
+  loadQuestion();
+}
+nextButton.addEventListener("click", nextQuestion);
+restartButton.addEventListener("click", restartQuiz);
+choicesElement.addEventListener("click", event => {
+  if (event.target.classList.contains('choice')) {
+    handleAnswer(event);
+  }
+});
+loadQuestion();
+
+  </script>
+</body>
+</html>

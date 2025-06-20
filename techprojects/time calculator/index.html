@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="time.css">
+</head>
+<body>
+
+    <div class="countdown-container">
+      <h1>Countdown Timer</h1>
+  
+      <!-- User input form for date and time -->
+      <label for="targetDate">Enter the target date and time:</label>
+      <input type="datetime-local" id="targetDate" />
+      <button id="startButton">Start Countdown</button>
+  
+      <!-- Countdown Timer -->
+      <div id="timer" style="display:none;">
+        <div class="time" id="days"></div>
+        <div class="time" id="hours"></div>
+        <div class="time" id="minutes"></div>
+        <div class="time" id="seconds"></div>
+      </div>
+      <button id="stopButton" style="display:none; margin-top:1.5rem;">Stop & Go Home</button>
+  
+      <!-- Result -->
+      <div id="result" class="result" style="display:none;">
+        <h2>Your Countdown has finished!</h2>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+
+  <script>
+   // script.js
+
+// Get elements from the DOM
+const targetDateInput = document.getElementById("targetDate");
+const startButton = document.getElementById("startButton");
+const daysElement = document.getElementById("days");
+const hoursElement = document.getElementById("hours");
+const minutesElement = document.getElementById("minutes");
+const secondsElement = document.getElementById("seconds");
+const timerElement = document.getElementById("timer");
+const resultElement = document.getElementById("result");
+const restartButton = document.getElementById("restartBtn");
+const stopButton = document.getElementById("stopButton");
+
+// Variables to hold the target date and the countdown interval
+let countdownInterval;
+let targetDate;
+
+// Function to start the countdown
+function startCountdown() {
+  targetDate = new Date(targetDateInput.value).getTime();
+
+  if (isNaN(targetDate)) {
+    alert("Please enter a valid date and time.");
+    return;
+  }
+
+  // Hide the input form and show the countdown timer
+  document.querySelector("label").style.display = "none";
+  targetDateInput.style.display = "none";
+  startButton.style.display = "none";
+  timerElement.style.display = "flex";
+  stopButton.style.display = "inline-block"; // Show stop button
+
+  // Start the countdown
+  countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+// Function to update the countdown timer
+function updateCountdown() {
+  const now = new Date().getTime();
+  const timeRemaining = targetDate - now;
+
+  if (timeRemaining <= 0) {
+    clearInterval(countdownInterval); // Stop the countdown when the time is up
+    resultElement.style.display = "block"; // Show result
+    timerElement.style.display = "none"; // Hide countdown timer
+    stopButton.style.display = "none"; // Hide stop button
+    return;
+  }
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  // Update the countdown elements
+  daysElement.innerHTML = `${days} <span>Days</span>`;
+  hoursElement.innerHTML = `${hours} <span>Hours</span>`;
+  minutesElement.innerHTML = `${minutes} <span>Minutes</span>`;
+  secondsElement.innerHTML = `${seconds} <span>Seconds</span>`;
+}
+
+// Function to restart the countdown
+function restartCountdown() {
+  targetDateInput.style.display = "block";
+  startButton.style.display = "block";
+  resultElement.style.display = "none";
+  timerElement.style.display = "none";
+  targetDateInput.value = ''; // Clear the input field
+  stopButton.style.display = "none"; // Hide stop button
+}
+// Add this function for stopping and going home
+function stopAndGoHome() {
+  clearInterval(countdownInterval); // Stop the countdown
+  // Redirect to your main page (change 'main.html' to your actual main page)
+  window.location.href = "index.html"; // Adjust the path as needed
+}
+// Event listeners
+startButton.addEventListener("click", startCountdown);
+restartButton.addEventListener("click", restartCountdown);
+stopButton.addEventListener("click", stopAndGoHome);
+
+  </script>
+</body>
+</html>

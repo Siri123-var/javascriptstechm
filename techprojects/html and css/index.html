@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicious Recipes</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/ionicons@5.4.0/dist/ionicons/ionicons.min.css" rel="stylesheet"> -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <nav>
+        <img  class='pic' src="./images//logo1.jpg" alt="pic not available">
+      <ul>
+        <li><a href="https://github.com/">Home</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Explore Delicious Recipes</h1>
+      <p style="color: rgb(238, 255, 144); font-size: 18px; text-align: center;">Find your next favorite dish!</p>
+    </div>
+  </header>
+
+  <section class="featured-recipes">
+    <h2>Featured Recipes</h2>
+    <div class="recipe-card">
+      <img src="./images/recipe1.jpg" alt="Recipe 1">
+      <h3>Spaghetti Carbonara</h3>
+      <p>Delicious and creamy spaghetti carbonara with crispy pancetta.</p>
+      <a href="recipe-details.html">Read Recipe</a>
+    </div>
+    <div class="recipe-card">
+      <img src="./images/recipe2.jpg" alt="Recipe 2">
+      <h3>Chocolate Cake</h3>
+      <p>A rich, moist chocolate cake with velvety frosting.</p>
+      <a href="recipe-details.html">Read Recipe</a>
+    </div>
+    <div class="recipe-card">
+      <img src="./images/recipe3.jpg" alt="Recipe 2">
+      <h3>Quinoa Salad with Roasted Vegetables</h3>
+      <p>A complete protein, containing all nine of the essential amino acids.</p>
+      <a href="recipe-details.html">Read Recipe</a>
+    </div>
+    <div class="recipe-card">
+      <img src="./images/recipe4.jpg" alt="Recipe 2">
+      <h3>Mediterranean Buddha Bowl</h3>
+      <p> A hearty, nutritionally dense, jam-packed with flavor </p>
+      <a href="recipe-details.html">Read Recipe</a>
+    </div>
+    <div class="recipe-card">
+      <img src="./images/recipe5.jpg" alt="Recipe 2">
+      <h3>Chicken Tikka Masala</h3>
+      <p>A mildly spicy, with hints of sweetness from the tomatoes and cream.</p>
+      <a href="recipe-details.html">Read Recipe</a>
+    </div>
+  </section>
+   
+
+  <section class="blog-section">
+    <h2>Health & Wellness</h2>
+    <div class="blog-post">
+      <h3><a href="blog-details.html">Healthy Eating on a Budget</a></h3>
+      <p>Eating healthy doesn't have to break the bank. Discover tips and tricks to keep your meals nutritious while sticking to your budget.</p>
+    </div>
+    <div class="blog-post">
+      <h3><a href="blog-details.html">How to Incorporate More Vegetables into Your Diet</a></h3>
+      <p>Learn creative and easy ways to sneak more vegetables into your meals, without sacrificing flavor.</p>
+    </div>
+    <div class="blog-post">
+      <h3><a href="blog-details.html">Gluten-Free, Dairy-Free, or Vegan Recipes</a></h3>
+      <p>Explore recipes tailored to various dietary needs, whether you're gluten-free, dairy-free, or vegan.</p>
+    </div>
+    <div class="blog-post">
+      <h3><a href="blog-details.html">The Science of Food & Nutrition</a></h3>
+      <p>Understand the nutritional value of different foods and how they benefit your body for optimal health.</p>
+    </div>
+  </section>
+  <section class="about-section">
+    <h2>About Us</h2>
+    <div class="about-content" id="aboutContent">
+      <!-- Random content will be displayed here -->
+    </div>
+  </section>
+  <script>
+    // Array of random content for the About section
+    const aboutContentArray = [
+      "We are passionate about food and love to share delicious recipes that bring joy to your table.",
+      "Our mission is to inspire home cooks to try new flavors, ingredients, and cooking techniques from around the world.",
+      "We believe food is not just about nourishment but about creating memories and bringing people together.",
+      "From comforting classics to exotic new dishes, we offer a variety of recipes for every occasion and taste.",
+      "Our team of culinary enthusiasts is dedicated to sharing easy-to-follow recipes with you, no matter your skill level."
+    ];
+
+    // Function to select a random piece of content
+    function displayRandomContent() {
+      const randomIndex = Math.floor(Math.random() * aboutContentArray.length);
+      const randomContent = aboutContentArray[randomIndex];
+      document.getElementById('aboutContent').innerHTML = randomContent;
+    }
+
+    // Display random content when the page loads
+    window.onload = function() {
+      displayRandomContent();
+
+      // Add form submission event listener
+      document.querySelector('.contact-form').addEventListener('submit', function(event) {
+        // Prevent the form from actually submitting (we don't want to reload the page)
+        event.preventDefault();
+        
+        // Show a success alert
+        alert("Submission Successful");
+
+        // Log the response to the console
+        console.log("Thanks for filling the form");
+
+        // Optionally, reset the form after submission
+        event.target.reset();
+      });
+    };
+  </script>
+
+<section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="mb-5">
+          <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
+        </div><!-- End Google Maps -->
+
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="icon bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="icon bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>info@example.com</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+              <i class="icon bi bi-clock flex-shrink-0"></i>
+              <div>
+                <h3>Opening Hours<br></h3>
+                <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form><!-- End Contact Form -->
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<section class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>If you have any questions, suggestions, or just want to share your own favorite recipes with us, feel free to reach out!</p> -->
+
+  <!-- Contact Form -->
+  <!-- <form action="" method="POST" class="contact-form">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <div>
+      <button type="submit">Send Message</button>
+    </div>
+  </form> -->
+  <!-- <form action="" method="POST" class="contact-form">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <div>
+      <button type="submit">Send Message</button>
+    </div>
+  </form> -->
+  
+  <!-- <div class="social-media">
+    <h3>Follow Us on Social Media:</h3>
+    <a href="https://www.instagram.com/yourprofile" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.pinterest.com/yourprofile" target="_blank">
+      <i class="fab fa-pinterest"></i> Pinterest
+    </a>
+    <a href="https://www.youtube.com/yourchannel" target="_blank">
+      <i class="fab fa-youtube"></i> YouTube
+    </a> -->
+  </div>
+
+  <!-- <footer>
+    <p>&copy; 2025 Delicious Recipes | Follow us on Instagram and Pinterest</p>
+  </footer> -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WanderLog 🌍</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+  <header>
+    <h1>WanderLog <span>🧳</span></h1>
+    <p>Track your travel dreams and adventures!</p>
+  </header>
+  <main>
+    <section class="bucket-list">
+      <h2>My Bucket List</h2>
+      <form id="add-place-form">
+        <input type="text" id="place-input" placeholder="Add a country or place..." required/>
+        <button type="submit">Add</button>
+      </form>
+      <ul id="places-list"></ul>
+    </section>
+    <section class="map-section">
+      <div id="map"></div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
